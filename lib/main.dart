@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'MANIT ERP',
       theme: ThemeData(
-        useMaterial3: true,
+        useMaterial3: true, 
       ),
       debugShowCheckedModeBanner: false,
       home: const BottomBar(),
