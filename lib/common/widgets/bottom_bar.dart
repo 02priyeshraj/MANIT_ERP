@@ -21,7 +21,7 @@ class _BottomBarState extends State<BottomBar> {
   List<Widget> pages = [
     const HomePage(),
     const FeePayScreen(),
-    const RegistrationScreen(),
+    RegistrationScreen(),
     const ContactSupportScreen(),
   ];
 
