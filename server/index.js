@@ -1,17 +1,22 @@
-const { Client } = require('pg');
+const express = require('express');
+const bodyParser = require('body-parser');
+require("dotenv").config();
 
-// PostgreSQL connection configuration
-const client = new Client({
-  host: '',
-  port: 5432,
-  user: '',
-  password: '',
-  database: '',
+
+const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+const loginRouter = require('./routes/auth_route');
+const studentMasterRouter = require('./routes/academic_student_master_routes');
+
+
+app.use('/api',loginRouter);
+app.use('/api',studentMasterRouter);
+
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
-
-// Connect to PostgreSQL
-client.connect()
-  .then(() => console.log('Connected to PostgreSQL'))
-  .catch(err => console.error('Connection error', err.stack));
-
 
